@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Soil Monitoring</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- BACKGROUND DECOR -->
+    <div class="bg-leaf leaf-1"></div>
+    <div class="bg-leaf leaf-2"></div>
+
+    <header>
+      <h1>🌱 Smart Soil Monitoring</h1>
+      <p>Sistem Monitoring Kelembaban Tanah & Kapas</p>
+    </header>
+
+    <main>
+      <div class="cards">
+        <div class="card soil" id="card-soil">
+          <div class="card-header">
+            <span>🌾 Tanah/Kapas</span>
+            <span class="badge" id="status">--</span>
+          </div>
+
+          <div class="card-value">
+            <span id="moisture">--</span>
+            <small>%</small>
+          </div>
+
+          <p class="time" id="time">--</p>
+        </div>
+      </div>
+
+      <!-- STATUS AUTO UPDATE + MANUAL -->
+      <div class="auto-status">
+        🟢 Auto Update Aktif (1 Menit)
+        <button class="refresh" onclick="loadSoil()">Update Manual</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>Raspberry Pi 4 · Flask · MySQL · IoT Agriculture</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/soil.js') }}"></script>
+  </body>
+</html>

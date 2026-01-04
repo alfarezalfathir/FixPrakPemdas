@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+
+  background: linear-gradient(rgba(10, 60, 30, 0.55), rgba(10, 60, 30, 0.55)),
+    url("../img/bg-soil.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #ffffff;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 30px;
+  color: #1b5e20;
+}
+
+header p {
+  color: #4e7d53;
+  margin-top: 8px;
+}
+
+/* ===== MAIN ===== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== CARD ===== */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  padding: 25px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #ffffff, #f1f8e9);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* ===== CARD HEADER ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* ===== VALUE ===== */
+.card-value {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 56px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.card-value small {
+  font-size: 20px;
+}
+
+/* ===== STATUS BADGE ===== */
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+}
+
+.kering .badge {
+  background: #c62828;
+}
+
+.normal .badge {
+  background: #2e7d32;
+}
+
+.basah .badge {
+  background: #1565c0;
+}
+
+/* ===== TIME ===== */
+.time {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== BUTTON ===== */
+.refresh {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.refresh:hover {
+  opacity: 0.85;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #dcedc8;
+}
+
+.card {
+  width: 320px;
+  padding: 28px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+  color: #1b4332;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #e8f5e9;
+}
+
+header p {
+  color: #c8e6c9;
+}
+
+footer {
+  color: #e8f5e9;
+  text-align: center;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.badge.kering {
+  background: #c62828;
+}
+
+.badge.normal {
+  background: #2e7d32;
+}
+
+.badge.basah {
+  background: #1565c0;
+}
+
+.auto-status {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #e8f5e9;
+}
+
+.refresh {
+  margin-left: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #2e7d32;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.card-value {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-value.update {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
