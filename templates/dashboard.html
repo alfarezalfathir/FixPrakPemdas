@@ -37,15 +37,50 @@
 
       <!-- STATUS AUTO UPDATE + MANUAL -->
       <div class="auto-status">
-        🟢 Auto Update Aktif (1 Menit)
-        <button class="refresh" onclick="loadSoil()">Update Manual</button>
+        🟢 Auto Update Aktif
       </div>
     </main>
+
+    <div class="data-section">
+      <!-- GRAFIK -->
+      <div class="chart-box">
+        <h3>Grafik Kelembaban Tanah</h3>
+        <canvas id="moistureChart"></canvas>
+      </div>
+
+      <!-- TABEL -->
+      <div class="table-box">
+        <h3>Data Kelembaban</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kelembaban (%)</th>
+              <th>Waktu</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ row.moisture }}</td>
+              <td>{{ row.created_at.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <footer>
       <p>Raspberry Pi 4 · Flask · MySQL · IoT Agriculture</p>
     </footer>
 
     <script src="{{ url_for('static', filename='js/soil.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Data untuk chart dari backend (sudah di-convert ke dict)
+      const chartData = {{ rows_json|tojson }};
+    </script>
   </body>
 </html>

@@ -18,9 +18,21 @@ def home():
     return {"message": "Flask jalan cuy ✔"}
 
 # ===== DASHBOARD WEB =====
-@app.get("/dashboard")
+@app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    # data terbaru (untuk card)
+    latest = SoilSensor.query.order_by(SoilSensor.id.desc()).first()
+
+    # semua data (untuk tabel & grafik)
+    rows = SoilSensor.query.order_by(SoilSensor.created_at.asc()).all()
+    rows_dict = [row.to_dict() for row in rows]
+
+    return render_template(
+        "dashboard.html",
+        latest=latest,
+        rows=rows,
+        rows_json=rows_dict
+    )
 
 # ===== GET DATA SOIL SENSOR =====
 @app.get("/api/soil")

@@ -28,5 +28,45 @@ function loadSoil() {
 // ▶ LOAD DATA SAAT HALAMAN DIBUKA
 loadSoil();
 
-// 🔁 AUTO REFRESH SETIAP 1 MENIT
-setInterval(loadSoil, 60000);
+// 🔁 AUTO REFRESH SETIAP 1 detik
+setInterval(loadSoil, 1000);
+
+// ===== CHART =====
+function createChart() {
+  const ctx = document.getElementById("moistureChart").getContext("2d");
+  const labels = chartData.map((row) =>
+    new Date(row.created_at).toLocaleString()
+  );
+  const data = chartData.map((row) => row.moisture);
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Kelembaban Tanah (%)",
+          data: data,
+          borderColor: "#2e7d32",
+          backgroundColor: "rgba(46, 125, 50, 0.1)",
+          fill: true,
+          tension: 0.1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+        },
+      },
+    },
+  });
+}
+
+// Buat chart saat halaman load
+window.onload = function () {
+  createChart();
+};
